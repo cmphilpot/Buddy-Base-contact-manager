@@ -11,7 +11,7 @@ class Model {
       {
         id: 1,
         fullName: "Chase Philpot",
-        email: "philpotchase@gmail.com",
+        email: "philpotc@yahoo.com",
         phoneNumber: "1238675309",
         tags: ["LS", "Student", "Spot Lead"],
       }
