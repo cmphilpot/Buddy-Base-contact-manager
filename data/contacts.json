@@ -1,0 +1,16 @@
+[
+  {
+    "full_name": "John Jacob",
+    "phone_number": "1987654321",
+    "email": "a@a.gmail.com",
+    "tags": "Swimming",
+    "id": 1
+  },
+  {
+    "full_name": "Chase Jon",
+    "phone_number": "0987654311",
+    "email": "b@a.gmail.com",
+    "tags": "jump",
+    "id": 2
+  }
+]

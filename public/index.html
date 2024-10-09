@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Launch School 239 Practice Project: Contact Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/stylesheets/app.css">
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/handlebars.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="/javascripts/app.js"></script>
+  <script src="https://kit.fontawesome.com/ad2b643311.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <h1>Chase's Contact Manager</h1>
+    <h2>An LS production using JS, Handlebars, and the MVC design pattern</h2>
+  </header>
+
+  <main>
+    <div class="actions-container"> <!-- formerly class toolbar-->
+      <button id="addContact" class="btn actions-btn-lg add"><i class="fa-solid fa-user-plus"></i>Add New Contact</button>
+      <div id="searchBarHolder" class="actions-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" name="search" id="searchBar" placeholder="Search"/>
+      </div>
+
+<!--       <input type="text" class="actions-search" placeholder="Search">-->
+      </div>
+    <h2 id="title">Contact List</h2>
+    <div class="contacts-container">
+
+    </div>
+  </main>
+
+  <hr>
+  <small>Developed by <a href="ChasePhilpot.com">ChasePhilpot.com</a>, September/October 2024.</small>
+
+  <script id="contactsTemplate" type="text/x-handlebars">
+    {{#if contacts}}
+      {{#each contacts}}
+        {{> contactCardTemplate}}
+      {{/each}}
+    {{else}}
+      <div class="no-contacts-container">
+        <h2>There are no contacts.</h2>
+        <button class="btn actions-btn-lg add"><i class="fa-solid fa-user-plus"></i>Add New Contact</button>
+      </div>
+    {{/if}}
+  </script>
+
+  <script id="contactCardTemplate" type="text/x-handlebars" data-type="partial">
+    <span class="contactCard" data-id="{{id}}">
+        <h2  class="card-header contact-name">{{fullName}}</h2>
+      <div class="card-body">
+        <dl>
+          <dt>Phone Number:</dt>
+          <dd class="contact-number">{{phoneNumber}}</dd>
+          <dt>Email:</dt>
+          <dd class="contact-email">{{email}}</dd>
+          <dt>Tags:<dt>
+            <dd class="tags-container">
+              {{#if tags}}
+                {{#each tags}}
+                 <p class="contact-tag">{{this}}</p>
+                {{/each}}
+              {{else}}No Tags{{/if}}
+            </dd>
+        </dl>
+      </div>
+      <div class="contact-actions-container">
+        <button class="btn contact-actions-btn edit" type="button" data-id={{id}}><i class="edit fa-solid fa-pen-to-square"></i>Edit</button>
+        <button class="btn contact-actions-btn delete" type="button" data-id={{id}}><i class="delete fa-solid fa-trash-can"></i>Delete</button>
+      </div>
+    </span>
+  </script>
+
+  <script id="contactFormTemplate" type="text/x-handlebars">
+    <div class="contact-form">
+      <h2><strong>{{formHeader}}</strong></h2>
+      <form action="#" class="{{formClass}}" data-id="{{id}}">
+        <fieldset>
+          <dl>
+            <dt>
+              <label for="full_name">Full name:</label>
+            </dt>
+            <dd>
+              <input type="text" id="full_name" name="full_name" placeholder="John Doe" value="{{fullName}}" pattern="^([a-zA-Z']+)\s([a-zA-Z']+)$" required>
+              <p>Must contain first and last names separated by a space</p>
+            </dd>
+
+            <dt>
+              <label for="email">Email address:</label>
+            </dt>
+            <dd>
+              <input type="email" id="email" name="email" placeholder="example@gmail.com" value="{{email}}" pattern="^\S+@\S+$" required>
+              <p>Must contain a valid email address</p>
+            </dd>
+
+            <dt>
+              <label for="phone_number">Telephone number:</label>
+            </dt>
+            <dd>
+              <input type="tel" id="phone_number" name="phone_number" placeholder="0000000000" value="{{phoneNumber}}" pattern="^\d{10}$" required>
+              <p>Must contain a valid number of 10 digits</p>
+            </dd>
+
+            <dt>
+              <label for="new_tag">Create a new tag to attach:</label>
+            </dt>
+            <dd>
+              <input type="text" id="new_tag" name="new_tag" placeholder="Enter tag text here (>1 but <= 14 characters)" pattern="^\S{1}.{0,12}\S$">
+              <p>Must contain at least 2 characters, but no more than 14</p>
+            </dd>
+
+            <dt>
+              <label for="tags">Select existing tag(s) to attach:</label>
+            </dt>
+            <dd>
+              <div class="tag-selections-container">
+                {{#each tags}}
+                  <div class="tag-selection-container">
+                    <label for="{{this}}">{{this}}</label>
+                    <input type="checkbox" id="{{this}}" name="tags" value="{{this}}">
+                  </div>
+                {{/each}}
+              </div>
+            </dd>
+          </dl>
+        </fieldset>
+
+        <div class="form-actions-container">
+          <button type="submit" class="btn form-actions-btn">Submit</button>
+          <button class="btn form-actions-btn cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </script>
+
+  <script id="noContactsFoundTemplate" type="text/x-handlebars">
+    <div class="no-contacts-container">
+      <p>No contact information matches the search term: "<strong>{{.}}</strong>"</p>
+    </div>
+  </script>
+
+</body>
+</html>
