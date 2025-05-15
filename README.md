@@ -10,8 +10,7 @@ file into three separate files, I opted to keep
 everything together in one for my own ease of use.
 
 Features to note:
-- The search functionality is intended to
-  be able to search every component of a
+- The search functionality can search by any component of a
   contact:
     - first or last name
     - phone #
