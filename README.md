@@ -31,13 +31,13 @@ Features to note:
 
 ## 🚀 App Demo
 
-Delete contact functionality:
-
-![Delete Demo](assets/cmDelete.gif)
-
 Add contact functionality:
 
 ![Add Demo](assets/cmAdd.gif)
+
+Delete contact functionality:
+
+![Delete Demo](assets/cmDelete.gif)
 
 Name Search functionality:
 
@@ -62,7 +62,6 @@ Tag Hover functionality:
 Tag Click functionality:
 
 ![Tag Hover Demo](assets/cmTagClick.gif)
-
 
 Lessons learned:
   This was both my first time taking on a project 
