@@ -29,7 +29,7 @@ Features to note:
   input field for 3 seconds will give the
   user an indication of what input is expected
 
-## 🚀 App Demo
+## 🚀 Delete Demo
 
 Here’s a quick look at how the delete functionality works:
 
