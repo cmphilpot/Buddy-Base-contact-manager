@@ -29,9 +29,9 @@ Features to note:
   input field for 3 seconds will give the
   user an indication of what input is expected
 
-## 🚀 Delete Demo
+## 🚀 App Demo
 
-Here’s a quick look at how the delete functionality works:
+Delete functionality:
 
 ![Delete Demo](assets/cmDelete.gif)
 
