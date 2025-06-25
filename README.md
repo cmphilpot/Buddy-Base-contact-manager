@@ -57,11 +57,11 @@ Filter by Tag functionality:
 
 Tag Hover functionality:
 
-![Tag Hover Demo](assets/cmsTagHover.gif)
+![Tag Hover Demo](assets/cmTagHover.gif)
 
 Tag Click functionality:
 
-![Tag Hover Demo](assets/cmsTagClick.gif)
+![Tag Hover Demo](assets/cmTagClick.gif)
 
 
 Lessons learned:
