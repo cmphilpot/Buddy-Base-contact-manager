@@ -29,6 +29,12 @@ Features to note:
   input field for 3 seconds will give the
   user an indication of what input is expected
 
+## 🚀 App Demo
+
+Here’s a quick look at how the delete functionality works:
+
+![Delete Demo](assets/cmDelete.gif)
+
 Lessons learned:
   This was both my first time taking on a project 
 this large and using the MVC design pattern. I 
