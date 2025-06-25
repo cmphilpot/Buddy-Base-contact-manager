@@ -129,8 +129,11 @@ class Model {
 
   /* eslint-disable-next-line max-lines-per-function */
   getSearchMatches(query) {
+    query = query.toLowerCase();
+
     return this.contacts.filter(contact => {
       let name = contact.fullName.toLowerCase();
+      let [first, last] = name.split(' ');
       let email = contact.email.toLowerCase();
       let phoneNumber = String(contact.phoneNumber);
       let tags = contact.tags.map(tag => tag.toLowerCase());
@@ -139,20 +142,12 @@ class Model {
       /* eslint-disable-next-line eqeqeq */
       if (Number(query) == query) return phoneNumber.startsWith(query);
 
-      if (name.includes(' ')) {          // validation pattern already requires space ' '
-        let [first, last] = name.split(' ');
-
-        return first.startsWith(query.toLowerCase()) ||
-                last.startsWith(query.toLowerCase()) ||
-                email.startsWith(query.toLowerCase()) ||
+       // validation pattern already requires space ' '
+        return first.startsWith(query) ||
+                last.startsWith(query) ||
+                email.includes(query) ||
                 tags.filter(tag =>
-                  tag.startsWith(query.toLowerCase())).length > 0;
-      }
-
-      return (
-        name.startsWith(query.toLowerCase()) ||
-        email.startsWith(query.toLowerCase())
-      );
+                  tag.startsWith(query)).length > 0;
     });
   }
 
