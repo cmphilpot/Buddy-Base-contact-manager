@@ -31,9 +31,38 @@ Features to note:
 
 ## 🚀 App Demo
 
-Delete functionality:
+Delete contact functionality:
 
 ![Delete Demo](assets/cmDelete.gif)
+
+Add contact functionality:
+
+![Add Demo](assets/cmAdd.gif)
+
+Name Search functionality:
+
+![Name Search Demo](assets/cmNameSearch.gif)
+
+Email Search functionality:
+
+![Email Search Demo](assets/cmEmailSearch.gif)
+
+Phone number Search functionality:
+
+![Phone number Search Demo](assets/cmsearch.gif)
+
+Filter by Tag functionality:
+
+![Tag Filter Demo](assets/cmTagFilter.gif)
+
+Tag Hover functionality:
+
+![Tag Hover Demo](assets/cmsTagHover.gif)
+
+Tag Click functionality:
+
+![Tag Hover Demo](assets/cmsTagClick.gif)
+
 
 Lessons learned:
   This was both my first time taking on a project 
