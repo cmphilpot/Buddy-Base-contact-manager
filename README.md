@@ -74,13 +74,3 @@ the data in the Model, 2) keep the View concerned
 exclusively with the User Interface and 3) keep the 
 Controller for binding and handling the events and 
 setting the whole thing into motion.
-
-Although they may never read this, I would like
-to thank the previous LS students whose code I
-was able to learn from immensely:
-Erik, Wayne, Shane, Jason.
-
-Thank you, again.
-
-Respectfully,
-Chase
