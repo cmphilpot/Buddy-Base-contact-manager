@@ -1,9 +1,3 @@
-Thank you for taking the time to read this:
-
-Two files of Notice:
-- /public/index.html
-- /public/javascripts/app.js
-
 I chose to practice the MVC design pattern and 
 although I understand I could have split the app.js
 file into three separate files, I opted to keep 
